@@ -1,5 +1,6 @@
 package jp.co.sss.lms.ct.f01_login1;
 
+import static jp.co.sss.lms.constants.Constants.*;
 import static jp.co.sss.lms.ct.util.WebDriverUtils.*;
 
 import org.junit.jupiter.api.AfterAll;
@@ -34,8 +35,17 @@ public class Case01 {
 	@Test
 	@Order(1)
 	@DisplayName("テスト01 トップページURLでアクセス")
-	void test01() {
-		// TODO ここに追加
+	void test01() throws InterruptedException {
+
+		// LMSのトップページへアクセス
+		goTo(LMS_URL);
+
+		// ブラウザを最大化
+		maximizeWindow();
+
+		// エビデンスの取得
+		getEvidence(new Object() {
+		});
 	}
 
 }
