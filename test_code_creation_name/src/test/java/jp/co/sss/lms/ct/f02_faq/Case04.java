@@ -1,6 +1,8 @@
 package jp.co.sss.lms.ct.f02_faq;
 
+import static jp.co.sss.lms.constants.Constants.*;
 import static jp.co.sss.lms.ct.util.WebDriverUtils.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -35,21 +37,70 @@ public class Case04 {
 	@Order(1)
 	@DisplayName("テスト01 トップページURLでアクセス")
 	void test01() {
-		// TODO ここに追加
+		// LMSのトップページへアクセス
+		goTo(LMS_URL);
+
+		// ブラウザを最大化
+		maximizeWindow();
+
+		// 表示内容の確認
+		// (画面名)
+		assertEquals("ログイン | LMS", getPageTitle());
+		// (ボタンの表示文字列)
+		String buttonValueString = getAttributeFromElement(getWebElementByCssSelector(".btn.btn-primary"), "value");
+		assertEquals("ログイン", buttonValueString);
+
+		// エビデンスの取得
+		getEvidence(new Object() {
+		});
 	}
 
 	@Test
 	@Order(2)
 	@DisplayName("テスト02 初回ログイン済みの受講生ユーザーでログイン")
 	void test02() {
-		// TODO ここに追加
+		// ログインIDを入力
+		getWebElementById("loginId").sendKeys("StudentAA01");
+
+		// パスワードの入力
+		getWebElementById("password").sendKeys("JukouseiAA01");
+
+		// エビデンスの取得
+		getEvidence(new Object() {
+		}, "1");
+
+		// ログインボタンの押下
+		getWebElementByCssSelector(".btn.btn-primary").click();
+
+		// 表示内容の確認
+		// (画面名)
+		assertEquals("コース詳細 | LMS", getPageTitle());
+
+		// エビデンスの取得
+		getEvidence(new Object() {
+		}, "2");
 	}
 
 	@Test
 	@Order(3)
 	@DisplayName("テスト03 上部メニューの「ヘルプ」リンクからヘルプ画面に遷移")
-	void test03() {
-		// TODO ここに追加
+	void test03() throws InterruptedException {
+		// 上部メニューの「機能」をクリック
+		getWebElementByLinkText("機能").click();
+
+		// エビデンスの取得
+		getEvidence(new Object() {
+		}, "1");
+
+		// 「機能」押下により表示された項目から「ヘルプ」をクリック
+		getWebElementByLinkText("ヘルプ").click();
+
+		// 表示内容の確認(画面名)
+		assertEquals("ヘルプ | LMS", getPageTitle());
+
+		// エビデンスの取得
+		getEvidence(new Object() {
+		}, "2");
 	}
 
 	@Test
