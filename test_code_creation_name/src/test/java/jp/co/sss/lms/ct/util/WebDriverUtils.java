@@ -85,6 +85,15 @@ public class WebDriverUtils {
 	}
 
 	/**
+	 * リンクテキストからWebElement要素を取得
+	 * @param linkText
+	 * @return 取得した要素
+	 */
+	public static WebElement getWebElementByLinkText(String linkText) {
+		return webDriver.findElement(By.partialLinkText(linkText));
+	}
+
+	/**
 	 * CSSセレクタからWebElement要素を取得
 	 * @param cssSelector
 	 * @return 取得した要素
