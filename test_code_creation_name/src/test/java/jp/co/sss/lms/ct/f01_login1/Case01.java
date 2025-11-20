@@ -2,6 +2,7 @@ package jp.co.sss.lms.ct.f01_login1;
 
 import static jp.co.sss.lms.constants.Constants.*;
 import static jp.co.sss.lms.ct.util.WebDriverUtils.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -35,13 +36,21 @@ public class Case01 {
 	@Test
 	@Order(1)
 	@DisplayName("テスト01 トップページURLでアクセス")
-	void test01() throws InterruptedException {
+	void test01() {
 
 		// LMSのトップページへアクセス
 		goTo(LMS_URL);
 
 		// ブラウザを最大化
 		maximizeWindow();
+
+		// 表示内容の確認
+		// (画面名)
+		assertEquals("ログイン | LMS", getPageTitle());
+
+		// (ボタンの表示文字列)
+		String buttonValueString = getAttributeFromElement(getWebElementByCssSelector(".btn.btn-primary"), "value");
+		assertEquals("ログイン", buttonValueString);
 
 		// エビデンスの取得
 		getEvidence(new Object() {

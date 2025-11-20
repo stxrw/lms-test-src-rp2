@@ -59,6 +59,14 @@ public class WebDriverUtils {
 	}
 
 	/**
+	 * 表示されているページのタイトルを取得
+	 * @return 現在表示されているページのタイトル
+	 */
+	public static String getPageTitle() {
+		return webDriver.getTitle();
+	}
+
+	/**
 	 * id属性からWebElement要素を取得
 	 * @param id
 	 * @return 取得した要素
@@ -83,6 +91,16 @@ public class WebDriverUtils {
 	 */
 	public static WebElement getWebElementByCssSelector(String cssSelector) {
 		return webDriver.findElement(By.cssSelector(cssSelector));
+	}
+
+	/**
+	 * 取得した要素から、指定した属性の値を取得
+	 * @param element 取得したwebElement
+	 * @param AttributeName 属性名
+	 * @return 属性値
+	 */
+	public static String getAttributeFromElement(WebElement element, String AttributeName) {
+		return element.getAttribute(AttributeName);
 	}
 
 	/**
