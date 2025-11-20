@@ -47,7 +47,6 @@ public class Case01 {
 		// 表示内容の確認
 		// (画面名)
 		assertEquals("ログイン | LMS", getPageTitle());
-
 		// (ボタンの表示文字列)
 		String buttonValueString = getAttributeFromElement(getWebElementByCssSelector(".btn.btn-primary"), "value");
 		assertEquals("ログイン", buttonValueString);
