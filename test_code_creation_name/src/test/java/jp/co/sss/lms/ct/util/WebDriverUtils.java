@@ -104,6 +104,15 @@ public class WebDriverUtils {
 	}
 
 	/**
+	 * 取得した要素から、インナーテキストを取得
+	 * @param element 取得したwebElement
+	 * @return インナーテキスト
+	 */
+	public static String getInnerTextFromElement(WebElement element) {
+		return element.getText();
+	}
+
+	/**
 	 * ページロードタイムアウト設定
 	 * @param second
 	 */
