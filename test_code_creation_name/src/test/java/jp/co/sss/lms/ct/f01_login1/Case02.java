@@ -1,5 +1,6 @@
 package jp.co.sss.lms.ct.f01_login1;
 
+import static jp.co.sss.lms.constants.Constants.*;
 import static jp.co.sss.lms.ct.util.WebDriverUtils.*;
 
 import org.junit.jupiter.api.AfterAll;
@@ -35,14 +36,33 @@ public class Case02 {
 	@Order(1)
 	@DisplayName("テスト01 トップページURLでアクセス")
 	void test01() {
-		// TODO ここに追加
+		// LMSのトップページへアクセス
+		goTo(LMS_URL);
+
+		// ブラウザを最大化
+		maximizeWindow();
+
+		// エビデンスの取得
+		getEvidence(new Object() {
+		});
 	}
 
 	@Test
 	@Order(2)
 	@DisplayName("テスト02 DBに登録されていないユーザーでログイン")
 	void test02() {
-		// TODO ここに追加
+		// ログインIDとしてDBに登録されていないものを入力
+		getWebElementById("loginId").sendKeys("StudentAA00");
+
+		// パスワードの入力
+		getWebElementById("password").sendKeys("StudentAA00");
+
+		// ログインボタンの押下
+		getWebElementByCssSelector(".btn.btn-primary").click();
+
+		// エビデンスの取得
+		getEvidence(new Object() {
+		});
 	}
 
 }

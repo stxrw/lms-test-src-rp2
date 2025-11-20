@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -55,6 +56,33 @@ public class WebDriverUtils {
 	public static void goTo(String url) {
 		webDriver.get(url);
 		pageLoadTimeout(5);
+	}
+
+	/**
+	 * id属性からWebElement要素を取得
+	 * @param id
+	 * @return 取得した要素
+	 */
+	public static WebElement getWebElementById(String id) {
+		return webDriver.findElement(By.id(id));
+	}
+
+	/**
+	 * class属性からWebElement要素を取得
+	 * @param className
+	 * @return 取得した要素
+	 */
+	public static WebElement getWebElementByClassName(String className) {
+		return webDriver.findElement(By.className(className));
+	}
+
+	/**
+	 * CSSセレクタからWebElement要素を取得
+	 * @param cssSelector
+	 * @return 取得した要素
+	 */
+	public static WebElement getWebElementByCssSelector(String cssSelector) {
+		return webDriver.findElement(By.cssSelector(cssSelector));
 	}
 
 	/**
