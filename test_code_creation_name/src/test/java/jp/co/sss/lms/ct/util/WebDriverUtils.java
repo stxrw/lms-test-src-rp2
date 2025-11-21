@@ -43,10 +43,17 @@ public class WebDriverUtils {
 
 	/**
 	 * 画面を最大化
-	 * @param url
 	 */
 	public static void maximizeWindow() {
 		webDriver.manage().window().maximize();
+	}
+
+	/**
+	 * タブの切替（開いているタブが２つの場合）
+	 */
+	public static void switchTargetedTab() {
+		Object[] windowHandles = webDriver.getWindowHandles().toArray();
+		webDriver.switchTo().window((String) windowHandles[1]);
 	}
 
 	/**
@@ -137,6 +144,17 @@ public class WebDriverUtils {
 	public static void visibilityTimeout(By locater, int second) {
 		WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(second));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locater));
+	}
+
+	/**
+	 * ページ遷移時のタイムアウト設定
+	 * 遷移の確認には、遷移後のページのタイトルを使用する
+	 * @param pageTitle 遷移後に想定されるページタイトル
+	 * @param second 待機時間
+	 */
+	public static void pageTransitionTimeOut(String pageTitle, int second) {
+		WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(second));
+		wait.until(ExpectedConditions.titleIs(pageTitle));
 	}
 
 	/**
