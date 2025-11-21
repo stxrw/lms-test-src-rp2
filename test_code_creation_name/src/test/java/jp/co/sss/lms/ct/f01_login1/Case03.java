@@ -69,8 +69,9 @@ public class Case03 {
 		getEvidence(new Object() {
 		}, "1");
 
-		// ログインボタンの押下
+		// ログインボタンの押下 → ページ遷移を待ち
 		getWebElementByCssSelector(".btn.btn-primary").click();
+		pageTransitionTimeOut("コース詳細 | LMS", 1);
 
 		// 表示内容の確認
 		// (画面名)
