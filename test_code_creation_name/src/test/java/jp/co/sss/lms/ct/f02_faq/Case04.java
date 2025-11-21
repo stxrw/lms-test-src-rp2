@@ -69,8 +69,9 @@ public class Case04 {
 		getEvidence(new Object() {
 		}, "1");
 
-		// ログインボタンの押下
+		// ログインボタンの押下 → ページ遷移を待ち
 		getWebElementByCssSelector(".btn.btn-primary").click();
+		pageTransitionTimeOut("コース詳細 | LMS", 1);
 
 		// 表示内容の確認
 		// (画面名)
@@ -84,7 +85,7 @@ public class Case04 {
 	@Test
 	@Order(3)
 	@DisplayName("テスト03 上部メニューの「ヘルプ」リンクからヘルプ画面に遷移")
-	void test03() throws InterruptedException {
+	void test03() {
 		// 上部メニューの「機能」をクリック
 		getWebElementByLinkText("機能").click();
 
@@ -92,8 +93,9 @@ public class Case04 {
 		getEvidence(new Object() {
 		}, "1");
 
-		// 「機能」押下により表示された項目から「ヘルプ」をクリック
+		// 「機能」押下により表示された項目から「ヘルプ」をクリック → ページ遷移を待ち
 		getWebElementByLinkText("ヘルプ").click();
+		pageTransitionTimeOut("ヘルプ | LMS", 1);
 
 		// 表示内容の確認(画面名)
 		assertEquals("ヘルプ | LMS", getPageTitle());
@@ -106,8 +108,19 @@ public class Case04 {
 	@Test
 	@Order(4)
 	@DisplayName("テスト04 「よくある質問」リンクからよくある質問画面を別タブに開く")
-	void test04() {
-		// TODO ここに追加
+	void test04() throws InterruptedException {
+		// 「よくある質問」のテキストリンクをクリック
+		getWebElementByLinkText("よくある質問").click();
+
+		// WebDriverのWindowHandleを新しいタブに切り替え
+		switchTargetedTab();
+
+		// 表示内容の確認(画面名)
+		assertEquals("よくある質問 | LMS", getPageTitle());
+
+		// エビデンスの取得
+		getEvidence(new Object() {
+		});
 	}
 
 }
