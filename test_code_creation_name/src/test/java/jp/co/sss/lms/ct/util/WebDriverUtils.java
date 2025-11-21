@@ -3,6 +3,7 @@ package jp.co.sss.lms.ct.util;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -107,6 +108,24 @@ public class WebDriverUtils {
 	 */
 	public static WebElement getWebElementByCssSelector(String cssSelector) {
 		return webDriver.findElement(By.cssSelector(cssSelector));
+	}
+
+	/**
+	 * XPathからWebElement要素を取得
+	 * @param 
+	 * @return 取得した要素
+	 */
+	public static WebElement getWebElementByXpath(String xpath) {
+		return webDriver.findElement(By.xpath(xpath));
+	}
+
+	/**
+	 * XPathから複数のWebElement要素を取得
+	 * @param 
+	 * @return 取得した要素のリスト
+	 */
+	public static List<WebElement> getWebElementsByXpath(String xpath) {
+		return webDriver.findElements(By.xpath(xpath));
 	}
 
 	/**
