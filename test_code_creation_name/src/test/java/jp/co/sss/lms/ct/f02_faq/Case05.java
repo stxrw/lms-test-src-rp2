@@ -144,7 +144,7 @@ public class Case05 {
 		// 検索を実行
 		getWebElementByXpath("//input[@value='検索']").click();
 
-		//　検索結果の表示文字列を含む要素リストを取得
+		//　検索結果の表示文字列のリストを取得
 		List<WebElement> elementList = getWebElementsByXpath("//dt[@class='mb10']");
 
 		// 検索結果すべてに、キーワードを含むか確認
