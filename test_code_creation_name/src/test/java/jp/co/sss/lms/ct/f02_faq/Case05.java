@@ -152,8 +152,7 @@ public class Case05 {
 			for (WebElement element : elementList) {
 				String innerTextString = element.getText();
 
-				// キーワードを含むかを確認
-				assertNotEquals(-1, innerTextString.indexOf(keyWord));
+				assertTrue(innerTextString.contains(keyWord));
 			}
 		}
 
