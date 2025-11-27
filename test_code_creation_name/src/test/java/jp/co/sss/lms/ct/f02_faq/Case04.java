@@ -108,7 +108,7 @@ public class Case04 {
 	@Test
 	@Order(4)
 	@DisplayName("テスト04 「よくある質問」リンクからよくある質問画面を別タブに開く")
-	void test04() throws InterruptedException {
+	void test04() {
 		// 「よくある質問」のテキストリンクをクリック
 		getWebElementByLinkText("よくある質問").click();
 
