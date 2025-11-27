@@ -25,7 +25,7 @@ import org.openqa.selenium.NoSuchElementException;
 @DisplayName("ケース07 受講生 レポート新規登録(日報) 正常系")
 public class Case07 {
 	// 日報を新規登録する日付
-	LocalDate targetDate = LocalDate.of(2022, 10, 13);
+	LocalDate targetDate = LocalDate.of(2022, 10, 5);
 	String targetDateString = targetDate.format(DateTimeFormatter.ofPattern("yyyy年M月d日(E)"));
 
 	/** 前処理 */
